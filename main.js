@@ -1,4 +1,4 @@
-function initPagination(options){
+ function initPagination(options){
     const containerSelector = options.container || '#movie-list';  
     const basePath = options.basePath || '/';
     const paginationMode = options.paginationMode || 1; 
