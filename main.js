@@ -214,30 +214,3 @@ function nextMoreAjax(options){
         }
     });
 }
-
-
-function getRandomFallback() {
-  return fallbackImages[Math.floor(Math.random() * fallbackImages.length)];
-}
-
-document.addEventListener('lazybeforeunveil', function(e){
-    const el = e.target;
-
-    if(el.tagName.toLowerCase() === 'div' && el.dataset.bg){
-        const img = new Image();
-        img.src = el.dataset.bg;
-        img.onload = function(){
-            el.style.backgroundImage = 'url(' + el.dataset.bg + ')';
-        };
-        img.onerror = function(){
-            el.style.backgroundImage = 'url(' + getRandomFallback() + ')';
-        };
-    }
-
-    // Img
-    if(el.tagName.toLowerCase() === 'img' && el.dataset.src){
-        el.addEventListener('error', function(){
-            el.src = getRandomFallback();
-        });
-    }
-});
